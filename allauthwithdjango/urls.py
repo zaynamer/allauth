@@ -32,9 +32,20 @@ handler404 = sampleappview.custom_page_not_found
 
 
 
+from django.contrib import admin
+from django.urls import path, include
+from rest_framework import routers
+#from api.account.views import AccountViewSet
+from api.user.views import UserViewSet#, GroupViewSet
+
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet,basename='User')
+#router.register(r'groups', GroupViewSet)
+#router.register(r'accounts', AccountViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
+    #path('accounts/', include('allauth.urls')),
     path('', include('sampleapp.urls')),
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
    
 ]

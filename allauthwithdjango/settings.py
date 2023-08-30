@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount', # must
     'allauth.socialaccount.providers.google', # new
     'corsheaders',
-    'sampleapp'
+    'sampleapp',
+    'api',
 
 ]
 
